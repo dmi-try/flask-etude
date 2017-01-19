@@ -20,3 +20,4 @@ class BasicTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         result = json.loads(response.data)
         self.assertEqual(result['ping'], 'pong')
+        self.assertGreater(len(result['version']), 0)
