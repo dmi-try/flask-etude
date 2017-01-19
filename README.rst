@@ -5,7 +5,7 @@ Flask Etude
 .. image:: https://travis-ci.org/dmi-try/flask-etude.svg?branch=master
     :target: https://travis-ci.org/dmi-try/flask-etude
 
-Flask app I'm experimenting with. Live deployment on Heroku: https://aqueous-beach-54516.herokuapp.com/
+Flask app I'm experimenting with. Live deployment on Heroku: https://aqueous-beach-54516.herokuapp.com/ping
 
 Run
 ===
