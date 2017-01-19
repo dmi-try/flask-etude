@@ -10,7 +10,7 @@ Flask app I'm experimenting with.
 Run
 ===
 
-Install python 3.5 and virtualenv
+Install python 3.5 and virtualenv. After that create env:
 
 .. code-block:: bash
 
@@ -19,7 +19,7 @@ Install python 3.5 and virtualenv
   $ env/bin/pip install -r requirements.txt
   ...
 
-Run server
+Run server:
 
 .. code-block:: bash
 
@@ -37,6 +37,10 @@ Install python 3.5 and tox
 
   $ tox
   ...
+    py35: commands succeeded
+    flake8: commands succeeded
+    congratulations :)
+
 
 Author
 ======
