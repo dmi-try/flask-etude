@@ -12,7 +12,6 @@ def ping():
 @app.route("/ping_json")
 def ping_json():
     version = pbr.version.VersionInfo('app').release_string()
-    return jsonify({'ping': 'pong', 'version': version})
     return jsonify({'ping': 'pong'})
 
 
