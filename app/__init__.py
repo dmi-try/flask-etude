@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 import os
-import pkg_resources
+import pbr.version
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def ping():
 
 @app.route("/json_ping")
 def json_ping():
-    version = pkg_resources.get_distribution('app').version
+    version = pbr.version.VersionInfo('app').release_string()
     return jsonify({'ping': 'pong', 'version': version})
 
 
