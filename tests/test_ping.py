@@ -14,9 +14,9 @@ class BasicTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, b'pong')
 
-    def test_json_ping(self):
+    def test_ping_json(self):
         tester = app.test_client(self)
-        response = tester.get('/json_ping')
+        response = tester.get('/ping_json')
         self.assertEqual(response.status_code, 200)
         result = json.loads(response.data)
         self.assertEqual(result['ping'], 'pong')

@@ -9,8 +9,8 @@ def ping():
     return "pong"
 
 
-@app.route("/json_ping")
-def json_ping():
+@app.route("/ping_json")
+def ping_json():
     return jsonify({'ping': 'pong'})
 
 
