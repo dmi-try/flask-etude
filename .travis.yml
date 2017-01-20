@@ -1,6 +1,12 @@
 language: python
 python: 3.5
 install:
- - pip install tox
+- pip install tox
 script:
- - tox
+- tox
+deploy:
+  provider: heroku
+  app:
+    master: flask-etude
+  api_key:
+    secure: bI/9vfA+dGljZ5Kqm0W39m8TGiiHJY+7zesfmfqGXTQD0gQ6g4hkl9cM5Dr11FP0MdUnBv7IeTScPtscum212THu9soycBbORjV30Zw7p74avgU1FKJYYZXwue9D80xN4KXhI/b4pLPDg6FT3hm4YbKuZO4ZrVTTdmIBP4NsDyy+E5pKJ46mimTixJZI52fJ2y+Rae9ESpVrbcz/cIHyEd6AVRfyHFJDt7zrTfhozC7mBCDoThPydB6sX0f3G2reM+tKMaCDVT5CieszGwW1cxsCa7BltDMSnukZOVFe5bChVJUYhhdyK+nw+qAVxVQpT5fbHGoaj7dBstgZ1Q2uyENr5e8CBzg9/zFVGgWndv8oK9l+BWSRvwDBiJUUW/JIWw5GpZ7AqdbH/o5TddUlzREXkTYOa1g1hv46+ifrBJISDzgxZGTfYRWLnGwcdxGLNxqKOdC6x3CXvhaZAz4jEHo/jgsR5PHVAnstX53z4VPy3tvsxor/iR/IIBt9FHrLcmTED3GIzGfysLaYDZruSHgKQyroYvK7nLh26j+n34V9BNs/PoDSdENPhxc1XeOw9lOaN0blXjpPBYuyA1J3Yj3MfAF7OU00+us24eJ4gQELr3pCWbKuKBUToSbfCJ/zyXV1E0o6KP6eYdKBvZMPU/syRiGXSSEdT4Z1yEVEYnI=
