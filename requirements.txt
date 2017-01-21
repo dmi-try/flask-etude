@@ -1,2 +1,4 @@
 flask
 gunicorn
+habitica
+py-trello
