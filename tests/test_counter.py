@@ -29,3 +29,8 @@ class DayCounterTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.get('/days_counter?since=2017-01-01&title=thetitle')
         assert b"thetitle" in response.data
+
+    def test_final_date(self):
+        tester = app.test_client(self)
+        response = tester.get('/days_counter?since=2017-01-01&needed=2')
+        assert b"Finish is on 2017-01-02" in response.data

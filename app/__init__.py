@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import os
 import math
-from datetime import datetime as dt
+from datetime import datetime as dt, timedelta as td
 
 app = Flask(__name__)
 
@@ -34,15 +34,21 @@ def days_counter():
         return """
 Today is the {days} day of {title}. You are doing great!
         """.format(days=ordinal(delta), title=title)
+    end_date = (
+        dt.strptime(start_date, '%Y-%m-%d') + td(days=total-1)
+    ).strftime('%Y-%m-%d')
     if (total - delta) <= 0:
         return """
 Today is the {days} day of {title}. Congratulations! Job well done!
-        """.format(days=ordinal(delta), title=title)
+Finish is on {end_date}
+        """.format(days=ordinal(delta), title=title, end_date=end_date)
     return """
 Today is the {days} day of {title}. {left} to go. {percent}% complete.
+Finish is on {end_date}
     """.format(
         days=ordinal(delta), title=title, left=total - delta,
-        percent="%.0f" % (100*delta/total)
+        percent="%.0f" % (100*delta/total),
+        end_date=end_date
     )
 
 
