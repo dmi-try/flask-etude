@@ -23,9 +23,21 @@ def days_counter():
             (math.floor(n / 10) % 10 != 1) * (n % 10 < 4) * n % 10::4
         ])
     start_date = request.args.get('since')
-    title = request.args.get('title')
-    total = int(request.args.get('needed'))
-    delta = (dt.today() - dt.strptime(start_date, '%Y-%m-%d')).days + 1
+    title = request.args.get('title', 'the counting')
+    try:
+        delta = (dt.today() - dt.strptime(start_date, '%Y-%m-%d')).days + 1
+    except TypeError:
+        return "Please provide 'since' parameter in YYYY-mm-dd format"
+    try:
+        total = int(request.args.get('needed'))
+    except TypeError:
+        return """
+Today is the {days} day of {title}. You are doing great!
+        """.format(days=ordinal(delta), title=title)
+    if (total - delta) <= 0:
+        return """
+Today is the {days} day of {title}. Congratulations! Job well done!
+        """.format(days=ordinal(delta), title=title)
     return """
 Today is the {days} day of {title}. {left} to go. {percent}% complete.
     """.format(
