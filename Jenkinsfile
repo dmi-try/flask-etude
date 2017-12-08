@@ -6,12 +6,14 @@ pipeline {
     
   }
   stages {
-    stage('ls') {
+    stage('prepare env') {
       steps {
-        sh '''pwd
-ls -la
-id
-uname -a'''
+        sh 'sudo apt-get install tox'
+      }
+    }
+    stage('run tests') {
+      steps {
+        sh 'tox'
       }
     }
   }
