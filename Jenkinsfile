@@ -8,12 +8,16 @@ pipeline {
     }
     stage('build image') {
       steps {
-        def image = docker.build("flask-dev:${env.BUILD_ID}")
+        script {
+          def image = docker.build("flask-dev:${env.BUILD_ID}")
+        }
       }
     }
     stage('publish image') {
       steps {
-        image.push()
+        script {
+          image.push()
+        }
       }
     }
   }
