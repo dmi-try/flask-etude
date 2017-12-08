@@ -6,18 +6,17 @@ pipeline {
         sh 'tox'
       }
     }
-    stage('build image') {
-      steps {
-        script {
-          def image = docker.build("flask-dev:${env.BUILD_ID}")
-        }
-      }
-    }
     stage('publish image') {
       steps {
         script {
+          def image = docker.build("flask-dev:${env.BUILD_ID}")
           image.push()
         }
+      }
+    }
+    stage('some debug') {
+      steps {
+        sh 'set'
       }
     }
   }
